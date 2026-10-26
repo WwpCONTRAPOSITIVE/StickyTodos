@@ -1,19 +1,19 @@
-# StickyTodos · Mac 桌面待办便签
+StickyTodos · A Desktop To-Do Widget for Mac
 
-一个轻量的 macOS 桌面待办工具。窗口默认贴在桌面，打开其他应用时会留在后面；也可以切换为置顶或普通窗口。
+StickyTodos is a lightweight macOS to-do app. By default, its window stays on the desktop behind other apps. You can also switch it to an always-on-top or standard window.
 
-## 功能
+## Features
 
-- 按日期查看任务：前后切换、日历选日、返回今天
-- 五个分类：金融申请、学习、活动、生活、工作
-- 添加、完成、编辑、改日期、删除任务；可只加粗任务文字中的一部分
-- 按天、周、月、年重复的任务；每次出现单独记录完成状态
-- 半透明背景；拖动窗口调整位置
-- 本地自动保存，无账号或云端服务
+- Browse tasks by date: move between days, pick a date from the calendar, or jump back to today.
+- Organize tasks into five categories: Finance Applications (金融申请), Study (学习), Events (活动), Life (生活), and Work (工作).
+- Add, complete, edit, reschedule, and delete tasks. Bold selected parts of a task's text.
+- Create daily, weekly, monthly, or yearly recurring tasks, with a separate completion state for each occurrence.
+- Adjust the widget's position by dragging its translucent window.
+- Save everything locally, with no account or cloud service required.
 
-## 构建
+## Build
 
-需要 macOS 13 或更新版本，以及 Xcode Command Line Tools。克隆仓库后在 Mac 的终端运行：
+Requires macOS 13 or later and Xcode Command Line Tools. After cloning the repository, run these commands in Terminal on your Mac:
 
 ```bash
 cd StickyTodos
@@ -21,14 +21,14 @@ bash build-mac.sh
 open dist/StickyTodos.app
 ```
 
-生成的应用位于 `dist/StickyTodos.app`，可拖入“应用程序”文件夹。重新构建前，请先从应用右上角 `…` 菜单退出正在运行的旧版。
+The built app is located at `dist/StickyTodos.app`. You can drag it into your Applications folder. Before rebuilding, quit any running older version from the `…` menu in the app's upper-right corner.
 
-## 使用与数据
+## Usage and Data
 
-底部先选分类，再输入任务，按回车或点击 `+`，任务会添加到当前查看的日期。点击方框切换完成状态；双击任务名称进入编辑窗口，选中文字后点击 **B** 或按 `⌘B` 加粗。右键任务可修改日期或删除。
+Choose a category at the bottom, type a task, and press Return or click `+` to add it to the date currently shown. Click a checkbox to mark a task complete. Double-click a task's text to edit it; select the text you want to bold, then click **B** or press `⌘B`. Right-click a task to change its date or delete it.
 
-按 `⌘⇧R`（应用激活时）可直接打开“新建重复待办”，选择开始日期和每天、每周、每月、每年的重复周期；右上角 `…` 菜单也有同一入口。重复任务在每个日期都有独立的完成状态。右上角显示位置菜单可切换桌面、置顶和普通窗口。
+While the app is active, press `⌘⇧R` to open the new recurring task form. Choose a start date and a daily, weekly, monthly, or yearly repeat interval. The same option is available in the upper-right `…` menu. Each occurrence has its own completion state. Use the window-position menu in the upper-right corner to switch between desktop, always-on-top, and standard window modes.
 
-任务保存在 `~/Library/Application Support/StickyTodos/tasks.json`，不会放进 Git 仓库。升级时已有日期会保留；没有日期的旧任务会归到首次打开新版的当天。旧版“内容”分类会转到“工作”。
+Tasks are stored in `~/Library/Application Support/StickyTodos/tasks.json` and are not included in the Git repository. When upgrading, existing task dates are preserved. Older tasks without dates are assigned to the day you first open the new version. Tasks in the old “Content” (内容) category are moved to “Work” (工作).
 
-目前通过构建脚本和静态检查验证；实际 macOS 界面和编译结果以 Mac 构建为准。
+So far, the project has been checked with the build script and static checks. Please use a macOS build to confirm compilation and the app's interface.
